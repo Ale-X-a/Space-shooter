@@ -7,7 +7,7 @@ public class UIDisplay : MonoBehaviour
     [Header("Health")]
     [SerializeField] Slider healthBar;
     [SerializeField] Health playerHealth;
-    
+
     [Header("Score")]
     [SerializeField] TextMeshProUGUI scoreText;
     ScoreKeeper scoreKeeper;
@@ -16,7 +16,7 @@ public class UIDisplay : MonoBehaviour
     {
         scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
     }
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

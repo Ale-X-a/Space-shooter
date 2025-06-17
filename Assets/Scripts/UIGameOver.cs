@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class UIGameOver : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI scoreText; 
+    [SerializeField] TextMeshProUGUI scoreText;
     ScoreKeeper scoreKeeper;
 
-     private void Awake()
-     {
-     scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
-     }
+    private void Awake()
+    {
+        scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
+    }
 
-     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         scoreText.text = $"FINAL SCORE: \n {scoreKeeper.GetScore()}";
@@ -21,6 +21,6 @@ public class UIGameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

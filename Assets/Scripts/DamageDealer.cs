@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageDealer: MonoBehaviour
+public class DamageDealer : MonoBehaviour
 {
     [SerializeField] int damage = 10;
 
-    public int GetDamage() 
+    public int GetDamage()
     {
         return damage;
     }
 
-    public void Hit() 
+    public void Hit()
     {
-        Destroy(gameObject); 
+        Destroy(gameObject);
     }
 }

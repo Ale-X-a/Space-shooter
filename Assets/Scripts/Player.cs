@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector2(newX, newY);
     }
-    void OnFire(InputValue value) 
+    void OnAttack(InputValue value) 
     {
         if (shooter != null) 
         {
