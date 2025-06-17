@@ -3,9 +3,27 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health: MonoBehaviour
 {
-    [SerializeField] int health = 50;
+    [SerializeField] bool isPlayer;
+    [SerializeField] int health = 100;
+    [SerializeField] int score = 50;
+    
+    AudioPlayer audioPlayer;
+    ScoreKeeper scoreKeeper;
+    LevelManager levelManager;
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    void Awake()
+    {
+        audioPlayer = FindAnyObjectByType<AudioPlayer>();
+        scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
+        levelManager = FindFirstObjectByType<LevelManager>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +32,7 @@ public class Health : MonoBehaviour
         if (damageDealer != null) 
         {
             TakeDamage(damageDealer.GetDamage()); 
+            audioPlayer.PlayDamageClip();
             damageDealer.Hit();                   
         }
     }
@@ -21,9 +40,23 @@ public class Health : MonoBehaviour
     void TakeDamage(int damage) 
     {
         health -= damage; 
+        
         if (health <= 0)
         {
-            Destroy(gameObject); 
+            Death();
         }
+    }
+    void Death()
+    {
+        if (!isPlayer)
+        {
+            scoreKeeper.ModifyScore(score);
+        }
+        else
+        {
+            levelManager.LoadGameOver();
+        }
+        
+        Destroy(gameObject);
     }
 }

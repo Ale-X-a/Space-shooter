@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem; 
 
-public class Shooter : MonoBehaviour
+public class Shooter: MonoBehaviour
 {
     [Header("General")]
     [SerializeField] GameObject projectilePrefab;
@@ -19,6 +19,13 @@ public class Shooter : MonoBehaviour
     [HideInInspector] public bool isFiring;
 
     Coroutine firingCoroutine;
+    
+    AudioPlayer audioPlayer;
+
+    void Awake()
+    {
+        audioPlayer = FindFirstObjectByType<AudioPlayer>();
+    }
 
     void Start()
     {
@@ -73,6 +80,8 @@ public class Shooter : MonoBehaviour
                 baseFiringRate + firingRateVariance);
 
             timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
+            
+            audioPlayer.PlayShootingClip();
 
             yield return new WaitForSeconds(timeToNextProjectile);
         }

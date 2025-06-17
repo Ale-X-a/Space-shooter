@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5277256685029600654}
   - component: {fileID: 8555870442853682151}
   - component: {fileID: 176795951758326948}
+  - component: {fileID: 4530310347071585440}
   - component: {fileID: 7257809886517845380}
   - component: {fileID: 5131763933524597061}
   - component: {fileID: 1991461890528263172}
@@ -149,7 +150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef75c7980c0ac46fdb52ecd12dd51c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
+--- !u!114 &4530310347071585440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553249355387940307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a298824766d5642da8a3791c109d37fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  health: 400
+  score: 200
 --- !u!114 &7257809886517845380
 MonoBehaviour:
   m_ObjectHideFlags: 0
