@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Health: MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField] bool isPlayer;
     [SerializeField] int health = 100;
     [SerializeField] int score = 50;
-    
+
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
@@ -29,23 +28,24 @@ public class Health: MonoBehaviour
     {
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
 
-        if (damageDealer != null) 
+        if (damageDealer != null)
         {
-            TakeDamage(damageDealer.GetDamage()); 
+            TakeDamage(damageDealer.GetDamage());
             audioPlayer.PlayDamageClip();
-            damageDealer.Hit();                   
+            damageDealer.Hit();
         }
     }
 
-    void TakeDamage(int damage) 
+    void TakeDamage(int damage)
     {
-        health -= damage; 
-        
+        health -= damage;
+
         if (health <= 0)
         {
             Death();
         }
     }
+
     void Death()
     {
         if (!isPlayer)
@@ -56,7 +56,7 @@ public class Health: MonoBehaviour
         {
             levelManager.LoadGameOver();
         }
-        
+
         Destroy(gameObject);
     }
 }

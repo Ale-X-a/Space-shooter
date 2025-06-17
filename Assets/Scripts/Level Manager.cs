@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager: MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     [SerializeField] float sceneLoadDelay = 2f;
     ScoreKeeper scoreKeeper;
@@ -14,7 +14,7 @@ public class LevelManager: MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void LoadMainMenu()
@@ -24,15 +24,15 @@ public class LevelManager: MonoBehaviour
 
     public void LoadGameOver()
     {
-        StartCoroutine(WaitAndLoad("GameOver", sceneLoadDelay)); 
+        StartCoroutine(WaitAndLoad("GameOver", sceneLoadDelay));
     }
 
-    IEnumerator WaitAndLoad(string sceneName, float delay) 
+    IEnumerator WaitAndLoad(string sceneName, float delay)
     {
-        yield return new WaitForSeconds(delay); 
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
     }
-    
+
     public void QuitGame()
     {
         Debug.Log("Quitting game");

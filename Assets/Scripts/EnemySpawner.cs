@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawn: MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] List<WaveConfigSO> waveConfigs;
     [SerializeField] bool isLooping;
@@ -44,6 +44,7 @@ public class EnemySpawn: MonoBehaviour
 
                 yield return new WaitForSeconds(timeBetweenWaves);
             }
-        } while (isLooping);
+        } 
+        while (isLooping);
     }
 }

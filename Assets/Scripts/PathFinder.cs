@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    [SerializeField] WaveConfigSO waveConfig;
+    WaveConfigSO waveConfig;
     List<Transform> waypoints;
     int waypointIndex = 0;
 
