@@ -1151,7 +1151,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f53882b8ad5ef451e96d760a2a34a075, type: 2}
   - {fileID: 11400000, guid: 7f2da381d6f2f4aa38469ef589d7e1db, type: 2}
   isLooping: 1
-  timeBetweenWaves: 0.3
+  timeBetweenWaves: 0.1
 --- !u!1001 &1058105135529164091
 PrefabInstance:
   m_ObjectHideFlags: 0
